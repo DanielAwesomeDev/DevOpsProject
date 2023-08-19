@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-flask-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-flask
+  template:
+    metadata:
+      labels:
+        app: hello-world-flask
+    spec:
+      containers:
+      - name: hello-world-flask-container
+        image: hello-world-flask:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: ACTIVE_MQ_HOST
+          value: "activemq"  # Name of the ActiveMQ service in Kubernetes
+
