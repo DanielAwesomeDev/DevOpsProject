@@ -14,7 +14,7 @@ def hello_world():
 
 def send_message(message):
     conn = stomp.Connection([(ACTIVE_MQ_HOST, ACTIVE_MQ_PORT)])
-    conn.start()
+    #conn.start()
     # Please replace 'admin' and 'password' with the actual credentials you have for ActiveMQ.
     conn.connect(login='admin', passcode='admin', wait=True)  
     conn.send(body=message, destination=QUEUE_NAME)

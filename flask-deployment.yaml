@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world-flask-container
-        image: hello-world-flask:latest
+        image: danielkodev/my-image:latest
         ports:
         - containerPort: 5000
         env:

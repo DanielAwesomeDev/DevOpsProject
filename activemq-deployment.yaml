@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: activemq-artemis-deployment
+  labels:
+    app: activemq-artemis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: activemq-artemis
+  template:
+    metadata:
+      labels:
+        app: activemq-artemis
+    spec:
+      containers:
+      - name: activemq-artemis
+        image: vromero/activemq-artemis:latest
+        ports:
+        - containerPort: 61616
+
